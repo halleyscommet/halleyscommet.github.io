@@ -11,7 +11,7 @@
 
         <meta property="og:title" content="noahharper.xyz">
         <meta property="og:image" content="https://halleyscommet.github.io/Images/favicon.png">
-        <meta property="og:url" content="noahlikesvr.github.io">
+        <meta property="og:url" content="halleyscommet.github.io">
         <meta property="og:type" content="website">
 
         <script>
@@ -105,7 +105,7 @@
         <div class="container">
             <div class="beatstatsBox">
                 <a href="https://scoresaber.com/u/76561199075475417" id="ss" target="_blank" title="ScoreSaber"><img src="Images/ScoreSaber.png" width="100" height="100"><h2></a><span id="unamess"></span> | 🌐 <span id="rankss"></span> <img src="https://www.beatleader.xyz/assets/flags/us.png" height="30" alt="US"> <span id="rankssus"></span> | <span id="ppss"></span>pp</h2>
-                <a href="https://www.beatleader.xyz/u/76561199075475417" id="bl" target="_blank" title="BeatLeader"><img src="Images/BeatLeader.png" width="100" height="100"><h2></a><span id="unamebl"></span> | 🌐 <span id="rankbl"></span> <img src="https://www.beatleader.xyz/assets/flags/aq.png" height="30" alt="Antartica"> <span id="rankblaq"></span> | <span id="ppbl"></span>pp</h2>
+                <a href="https://www.beatleader.xyz/u/303915" id="bl" target="_blank" title="BeatLeader"><img src="Images/BeatLeader.png" width="100" height="100"><h2></a><span id="unamebl"></span> | 🌐 <span id="rankbl"></span> <img src="https://www.beatleader.xyz/assets/flags/us.png" height="30" alt="US"> <span id="rankblaq"></span> | <span id="ppbl"></span>pp</h2>
             </div>
         </div>
 
@@ -126,7 +126,7 @@
             });
 
             $.ajax({
-                url: 'https://corsproxy.io/https://beatleader.com/u/303915?stats=true&keepOriginalId=false',
+                url: 'https://corsproxy.io/https://api.beatleader.xyz/player/303915',
                 type: 'GET',
                 success: function(data) {
                     $('#rankbl').text(data.rank);
