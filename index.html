@@ -115,7 +115,7 @@
         // Function to fetch and update Beat Saber stats
         function updateBeatSaberStats() {
             $.ajax({
-                url: 'https://corsproxy.io/?https://scoresaber.com/api/player/76561199075475417/basic',
+                url: 'https://corsproxy.io/https://scoresaber.com/api/player/76561199075475417/basic',
                 type: 'GET',
                 success: function(data) {
                     $('#rankss').text(data.rank);
@@ -126,7 +126,7 @@
             });
 
             $.ajax({
-                url: 'https://corsproxy.io/?https://beatleader.com/u/303915?stats=true&keepOriginalId=false',
+                url: 'https://corsproxy.io/https://beatleader.com/u/303915?stats=true&keepOriginalId=false',
                 type: 'GET',
                 success: function(data) {
                     $('#rankbl').text(data.rank);
