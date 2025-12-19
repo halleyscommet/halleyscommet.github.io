@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --foreground: #CAD3F5;
+    --background: #24273A;
+
+    --selection-foreground: #24273A;
+    --selection-background: #F4DBD6;
+
+    --cursor: #F4DBD6;
+    --cursor-text-color: #24273A;
+
+    --url-color: #F4DBD6;
+
+    --font: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+
+    height: 100%;
+
+    font-family: var(--font);
+    font-size: 14px;
+
+    color: var(--foreground);
+    background-color: var(--background);
+}
+
+::selection {
+    color: var(--selection-foreground);
+    background-color: var(--selection-background);
+}
+
+::-moz-selection {
+    color: var(--selection-foreground);
+    background-color: var(--selection-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+p,
+a {
+    padding: 0;
+    margin: 1rem;
+}
+
+a {
+    color: var(--foreground);
+
+    position: relative;
+
+    text-decoration: none;
+
+    background-image: linear-gradient(var(--url-color), var(--url-color));
+    background-size: 0% 2px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+
+    transition: background-size 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a:hover {
+    background-size: 100% 2px;
+}
+
+a::after {
+    content: "→";
+
+    margin-left: 0.2rem;
+
+    display: inline-block;
+
+    opacity: 0;
+    transform: translateX(-0.8rem);
+
+    transition:
+        opacity 350ms cubic-bezier(0.075, 0.82, 0.165, 1),
+        transform 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+a:hover::after {
+    opacity: 0.5;
+    transform: translateX(0rem);
+}
