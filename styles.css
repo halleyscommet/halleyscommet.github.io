@@ -4,6 +4,8 @@
     --foreground: #CAD3F5;
     --background: #24273A;
 
+    --active: #F5A97F;
+
     --selection-foreground: #24273A;
     --selection-background: #F4DBD6;
 
@@ -23,15 +25,10 @@ body {
     height: 100%;
 
     font-family: var(--font);
-    font-size: 1.25rem;
+    font-size: 1rem;
 
     color: var(--foreground);
     background-color: var(--background);
-}
-
-.app {
-    padding: 1rem;
-    margin: 0;
 }
 
 ::selection {
@@ -57,41 +54,30 @@ a {
     margin: 0;
 }
 
+.app {
+    padding: 1rem;
+    margin: 0;
+}
+
+.greeting {
+
+}
+
 a {
     color: var(--foreground);
 
-    position: relative;
+    text-decoration: 1px underline var(--url-color);
+    border: 1px dashed transparent;
 
-    text-decoration: none;
-
-    background-image: linear-gradient(var(--url-color), var(--url-color));
-    background-size: 0% 0.125rem;
-    background-position: 50% 100%;
-    background-repeat: no-repeat;
-
-    transition: background-size 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: crosshair;
 }
 
 a:hover {
-    background-size: 100% 0.125rem;
+    border: 1px dashed var(--url-color);
 }
 
-a::after {
-    content: "→";
+a:active {
+    color: var(--active);
 
-    margin-left: 0.25rem;
-
-    display: inline-block;
-
-    opacity: 0;
-    transform: translateX(-0.75rem);
-
-    transition:
-        opacity 350ms cubic-bezier(0.075, 0.82, 0.165, 1),
-        transform 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-a:hover::after {
-    opacity: 0.5;
-    transform: translateX(0rem);
+    text-decoration: 1px underline var(--active);
 }
