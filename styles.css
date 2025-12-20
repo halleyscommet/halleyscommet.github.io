@@ -4,6 +4,9 @@
     --foreground: #CAD3F5;
     --background: #24273A;
 
+    --foreground-transparent: #CAD3F550;
+    --background-transparent: #24273A50;
+
     --active: #F5A97F;
 
     --selection-foreground: #24273A;
@@ -31,6 +34,13 @@ body {
     background-color: var(--background);
 }
 
+body {
+    display: flex;
+
+    flex-direction: row;
+    gap: 0;
+}
+
 ::selection {
     color: var(--selection-foreground);
     background-color: var(--selection-background);
@@ -54,13 +64,71 @@ a {
     margin: 0;
 }
 
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari, Chrome, Opera */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently supported in all modern browsers */
+}
+
+.sidebar {
+    padding: 1rem;
+    margin: 1rem;
+
+    margin-right: 0.5rem;
+
+    width: 20%;
+    flex-shrink: 0;
+
+    color: var(--background);
+    background-color: var(--foreground-transparent);
+}
+
 .app {
     padding: 1rem;
     margin: 0;
+
+    padding-left: 0.5rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .greeting {
+    color: var(--background);
+    background-color: var(--foreground);
 
+    width: fit-content;
+}
+
+.greeting h1 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#name {
+    display: inline-block;
+
+    font-style: italic;
+}
+
+#name:hover {
+    font-weight: 800;
+
+    cursor: grab;
+}
+
+#name:active {
+    cursor: grabbing;
+}
+
+#pronouns {
+    font-weight: 200;
+    font-size: 0.75rem;
+    opacity: 0.75;
 }
 
 a {
