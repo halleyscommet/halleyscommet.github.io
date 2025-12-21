@@ -4,8 +4,20 @@
     --foreground: #CAD3F5;
     --background: #24273A;
 
-    --foreground-transparent: #CAD3F550;
-    --background-transparent: #24273A50;
+    --foreground50: #CAD3F580;
+    --background50: #24273A80;
+
+    --foreground75: #CAD3F5BF;
+    --background75: #24273ABF;
+
+    --foreground85: #CAD3F5D9;
+    --background85: #24273AD9;
+
+    --foreground95: #CAD3F5F2;
+    --background95: #24273AF2;
+
+    --foreground99: #CAD3F5FC;
+    --background99: #24273AFC;
 
     --active: #F5A97F;
 
@@ -64,73 +76,6 @@ a {
     margin: 0;
 }
 
-.unselectable {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Safari, Chrome, Opera */
-  -khtml-user-select: none;    /* Konqueror HTML */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently supported in all modern browsers */
-}
-
-.sidebar {
-    padding: 1rem;
-    margin: 1rem;
-
-    margin-right: 0.5rem;
-
-    width: 20%;
-    flex-shrink: 0;
-
-    color: var(--background);
-    background-color: var(--foreground-transparent);
-}
-
-.app {
-    padding: 1rem;
-    margin: 0;
-
-    padding-left: 0.5rem;
-
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.greeting {
-    color: var(--background);
-    background-color: var(--foreground);
-
-    width: fit-content;
-}
-
-.greeting h1 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-#name {
-    display: inline-block;
-
-    font-style: italic;
-}
-
-#name:hover {
-    font-weight: 800;
-
-    cursor: grab;
-}
-
-#name:active {
-    cursor: grabbing;
-}
-
-#pronouns {
-    font-weight: 200;
-    font-size: 0.75rem;
-    opacity: 0.75;
-}
-
 a {
     color: var(--foreground);
 
@@ -148,4 +93,206 @@ a:active {
     color: var(--active);
 
     text-decoration: 1px underline var(--active);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari, Chrome, Opera */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported in all modern browsers */
+}
+
+.sidebar {
+    padding: 1rem;
+    margin: 1rem;
+
+    margin-right: 0.5rem;
+
+    width: 20%;
+    flex-shrink: 0;
+
+    color: var(--background);
+    background-color: var(--foreground50);
+}
+
+.app {
+    position: relative;
+
+    padding: 1rem;
+    margin: 0;
+
+    padding-left: 0.5rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting {
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    width: fit-content;
+}
+
+.greeting h1 {
+    display: inline-flex;
+
+    align-items: baseline;
+
+    gap: 0.125rem;
+}
+
+.typing {
+    display: inline-block;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: typing 1.25s steps(9, end);
+}
+
+.cursor {
+    display: inline-block;
+}
+
+.cursor::after {
+    content: "_";
+
+    color: var(--cursor);
+
+    animation: blinker 1s step-end infinite;
+}
+
+#name {
+    display: inline-block;
+
+    border: 1px dashed transparent;
+
+    font-style: italic;
+}
+
+#name:hover {
+    font-weight: 800;
+
+    border: 1px dashed var(--active);
+
+    cursor: grab;
+}
+
+#name:active {
+    cursor: grabbing;
+}
+
+#pronouns {
+    font-weight: 200;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+#fursona-modal {
+    position: absolute;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+    margin: 2rem;
+
+    inset: 0;
+
+    width: auto;
+    height: auto;
+
+    opacity: 0;
+
+    transform: scale(0.95);
+
+    pointer-events: none;
+
+    background-color: var(--background95);
+
+    border: 2px dashed var(--active);
+
+    z-index: 9;
+}
+
+#fursona-modal.is-open {
+    display: flex;
+
+    pointer-events: auto;
+
+    animation: popup 250ms ease-out forwards;
+}
+
+#fursona-modal.is-closing {
+    display: flex;
+
+    pointer-events: none;
+
+    animation: popout 250ms ease-out forwards;
+}
+
+#fursona-modal img {
+    width: auto;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+/* animations go down here */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinker {
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popout {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 }
