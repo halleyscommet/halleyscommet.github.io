@@ -1,7 +1,7 @@
 const continueButton = document.getElementById("continue");
 
-const intervalDelay = 150;
-const rotateDegrees = 1;
+const intervalDelay = 100;
+const rotateDegrees = 1.5;
 const scaleAmount = 0.05;
 const skewDegrees = 2;
 
