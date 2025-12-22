@@ -1,17 +1,18 @@
 const cName = document.getElementById("name");
 const fursonaModal = document.getElementById("fursona-modal");
-const timeSpans = document.getElementsByClassName("time");
+// const timeSpans1 = document.getElementsByClassName("time1");
+// const timeSpans2 = document.getElementsByClassName("time2");
 const aboutMe = document.getElementById("about-me");
 
 let open = false;
 let isAnimating = false;
 
-const options = {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false
-}
+// const options = {
+//     hour: "2-digit",
+//     minute: "2-digit",
+//     second: "2-digit",
+//     hour12: false
+// }
 
 const birthday = new Date(2009, 5, 24);
 const age = getAge(birthday);
@@ -25,24 +26,36 @@ const info = {
     editor: "nvim"
 }
 
+// window.addEventListener("DOMContentLoaded", () => {
+//     const now = new Date();
+//     const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
+
+//     for (let i = 0; i < timeSpans1.length; i++) {
+//         const span = timeSpans1[i];
+//         span.innerText = formattedTime;
+//     }
+// });
+
 cName.addEventListener("click", (event) => {
     event.stopPropagation();
     if (open || isAnimating) return;
     fursonaModal.classList.add("is-open");
     open = true;
 
-    const now = new Date();
-    const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
+    moveBackground();
 
-    for (let i = 0; i < timeSpans.length; i++) {
-        const span = timeSpans[i];
-        span.innerText = formattedTime;
-    }
+    // const now = new Date();
+    // const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
+
+    // for (let i = 0; i < timeSpans2.length; i++) {
+    //     const span = timeSpans2[i];
+    //     span.innerText = formattedTime;
+    // }
 
     aboutMe.innerHTML = "";
     let iter = 0;
     Object.entries(info).forEach(([key, value]) => {
-        aboutMe.innerHTML += `<p>${key.toUpperCase()}=${value}</p>`;
+        aboutMe.innerHTML += `<p><span class="keyword">${key.toUpperCase()}</span>=${value}</p>`;
         iter++;
         if (iter % 2 == 0 && iter != 6) {
             aboutMe.innerHTML += "<br>";
@@ -68,6 +81,7 @@ fursonaModal.addEventListener("animationend", (event) => {
     isAnimating = false;
 });
 
+// ai generated function please dont judge me
 function getAge(birthDate, currentDate = new Date()) {
     let age = currentDate.getFullYear() - birthDate.getFullYear();
 
@@ -79,4 +93,14 @@ function getAge(birthDate, currentDate = new Date()) {
     if (!hasHadBirthdayThisYear) age--;
 
     return age;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function moveBackground() {
+    fursonaModal.style.backgroundPosition = `${getRandomInt(1, 100)}% ${getRandomInt(1, 100)}%`
 }

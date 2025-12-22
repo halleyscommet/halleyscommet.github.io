@@ -81,7 +81,7 @@ a {
 a {
     color: var(--foreground);
 
-    text-decoration: 1px underline var(--url-color);
+    text-decoration: none;
     border: 1px dashed transparent;
 
     cursor: crosshair;
@@ -93,8 +93,6 @@ a:hover {
 
 a:active {
     color: var(--active);
-
-    text-decoration: 1px underline var(--active);
 }
 
 .unselectable {
@@ -111,8 +109,6 @@ a:active {
     user-select: none;
     /* Non-prefixed version, currently supported in all modern browsers */
 }
-
-/* landing */
 
 .sidebar {
     padding: 1rem;
@@ -134,6 +130,10 @@ a:active {
     margin: 0;
 
     padding-left: 0.5rem;
+    padding-right: 33%;
+
+    overflow-wrap: break-word;
+    word-break: break-all;
 
     flex: 1;
     display: flex;
@@ -155,15 +155,6 @@ a:active {
     gap: 0.125rem;
 }
 
-.hello {
-    display: inline-block;
-
-    white-space: nowrap;
-    overflow: hidden;
-
-    animation: typing 1.25s steps(8, end);
-}
-
 .cursor {
     display: inline-block;
 }
@@ -176,12 +167,39 @@ a:active {
     animation: blinker 1s step-end infinite;
 }
 
+.subtext {
+    font-weight: 200;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+.keyword {
+    color: var(--active);
+}
+
+.active::before {
+    content: "> ";
+}
+
+/* landing */
+
+.hello {
+    display: inline-block;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: typing 1.25s steps(8, end);
+}
+
 #name {
     display: inline-block;
 
     border: 1px dashed transparent;
 
     font-style: italic;
+
+    transition: font-weight 125ms ease-in-out;
 }
 
 #name:hover {
@@ -189,17 +207,23 @@ a:active {
 
     border: 1px dashed var(--active);
 
-    cursor: grab;
+    cursor: crosshair;
 }
 
-#name:active {
-    cursor: grabbing;
+#name::after {
+    display: inline-block;
+
+    content: "←";
+
+    padding-left: 0.5rem;
+
+    transform: translateX(0rem);
+
+    transition: transform 125ms ease-in-out;
 }
 
-.pronouns {
-    font-weight: 200;
-    font-size: 0.75rem;
-    opacity: 0.75;
+#name:hover::after {
+    transform: translateX(-0.25rem);
 }
 
 #fursona-modal {
@@ -226,7 +250,6 @@ a:active {
     background-image: url("images/noise.png");
     background-position: 50% 50%;
     background-repeat: repeat;
-    background-size: auto;
 
     border: 2px dashed var(--active);
 
@@ -320,6 +343,16 @@ a:active {
     background-color: var(--foreground);
 
     cursor: crosshair;
+}
+
+/* about */
+.about {
+    display: inline-block;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: typing 1.25s steps(10, end);
 }
 
 /* animations */
