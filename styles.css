@@ -46,6 +46,12 @@ body {
 
     color: var(--foreground);
     background-color: var(--background);
+
+    /* background-image: url("images/temp_background.webp");
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply; */
 }
 
 body {
@@ -132,8 +138,8 @@ a:active {
     padding-left: 0.5rem;
     padding-right: 33%;
 
-    overflow-wrap: break-word;
-    word-break: break-all;
+    overflow-wrap: anywhere;
+    /* word-break: break-all; */
 
     flex: 1;
     display: flex;
@@ -366,6 +372,17 @@ a:active {
     overflow: hidden;
 
     animation: typing 1.25s steps(10, end);
+}
+
+/* credits */
+
+.credits {
+    display: inline-block;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: typing 1.25s steps(8, end);
 }
 
 /* animations */
