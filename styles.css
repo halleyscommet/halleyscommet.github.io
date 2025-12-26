@@ -299,34 +299,29 @@ a:active {
 }
 
 #fursona-modal {
-    position: absolute;
+    position: fixed;
+    inset: 2rem;
+    margin: 0;
 
     display: none;
 
     padding: 1rem;
-    margin: 2rem;
-    margin-left: 1rem;
-
-    inset: 0;
-
-    width: auto;
-    height: auto;
+    box-sizing: border-box;
 
     opacity: 0;
-
     transform: scale(0.95);
 
     pointer-events: none;
 
     background-color: var(--background95);
-
     background-image: url("images/noise.png");
     background-position: 50% 50%;
     background-repeat: repeat;
 
     border: 2px dashed var(--active);
 
-    z-index: 9;
+    z-index: 99;
+    overflow: auto;
 }
 
 #fursona-modal.is-open {
