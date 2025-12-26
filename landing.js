@@ -3,6 +3,7 @@ const fursonaModal = document.getElementById("fursona-modal");
 // const timeSpans1 = document.getElementsByClassName("time1");
 // const timeSpans2 = document.getElementsByClassName("time2");
 const aboutMe = document.getElementById("about-me");
+const close = document.getElementById("close");
 
 let open = false;
 let isAnimating = false;
@@ -26,16 +27,6 @@ const info = {
     editor: "nvim"
 }
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     const now = new Date();
-//     const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
-
-//     for (let i = 0; i < timeSpans1.length; i++) {
-//         const span = timeSpans1[i];
-//         span.innerText = formattedTime;
-//     }
-// });
-
 cName.addEventListener("click", (event) => {
     event.stopPropagation();
     if (open || isAnimating) return;
@@ -43,14 +34,6 @@ cName.addEventListener("click", (event) => {
     open = true;
 
     moveBackground();
-
-    // const now = new Date();
-    // const formattedTime = new Intl.DateTimeFormat('en-GB', options).format(now);
-
-    // for (let i = 0; i < timeSpans2.length; i++) {
-    //     const span = timeSpans2[i];
-    //     span.innerText = formattedTime;
-    // }
 
     aboutMe.innerHTML = "";
     let iter = 0;
@@ -67,11 +50,29 @@ fursonaModal.addEventListener("click", (event) => {
     event.stopPropagation();
 });
 
+close.addEventListener("click", () => {
+    if (!open || isAnimating) return;
+    isAnimating = true;
+    fursonaModal.classList.remove("is-open");
+    fursonaModal.classList.add("is-closing");
+})
+
 window.addEventListener("click", () => {
     if (!open || isAnimating) return;
     isAnimating = true;
     fursonaModal.classList.remove("is-open");
     fursonaModal.classList.add("is-closing");
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        event.preventDefault();
+
+        if (!open || isAnimating) return;
+        isAnimating = true;
+        fursonaModal.classList.remove("is-open");
+        fursonaModal.classList.add("is-closing");
+    }
 });
 
 fursonaModal.addEventListener("animationend", (event) => {
