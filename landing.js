@@ -24,7 +24,7 @@ const info = {
     work: "mentor@tcsPlymouth",
     learning: "gamedev,C",
     theme: "dark",
-    editor: "nvim"
+    editor: "nvim,code-oss"
 }
 
 cName.addEventListener("click", (event) => {
