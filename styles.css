@@ -1,4 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap'); */
+/* ^ replaced with local copy of source code pro in /fonts */
+
+/* fonts */
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("fonts/source-code-pro/SourceCodePro-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("fonts/source-code-pro/SourceCodePro-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 900;
+    font-style: italic;
+    font-display: swap;
+}
 
 /* global */
 
@@ -47,11 +66,10 @@ body {
     color: var(--foreground);
     background-color: var(--background);
 
-    /* background-image: url("images/temp_background.webp");
-    background-position: 50% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply; */
+    /* background-image: url("images/background.png");
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat; */
 }
 
 body {
@@ -117,33 +135,43 @@ a:active {
 }
 
 .sidebar {
-    padding: 1rem;
-    margin: 1rem;
+    position: fixed;
 
-    margin-right: 0.5rem;
+    top: 0;
+    left: 0;
 
     width: 20%;
-    flex-shrink: 0;
+    height: 100vh;
+
+    padding: 1rem;
 
     color: var(--background);
     background-color: var(--foreground50);
+
+    box-sizing: border-box;
+
+    overflow: auto;
+
+    margin: 0;
+
+    z-index: 10;
 }
 
 .app {
     position: relative;
 
     padding: 1rem;
-    margin: 0;
-
-    padding-left: 0.5rem;
     padding-right: 33%;
 
     overflow-wrap: anywhere;
-    /* word-break: break-all; */
+
+    height: fit-content;
 
     flex: 1;
     display: flex;
     flex-direction: column;
+
+    margin-left: calc(20% + 1rem);
 }
 
 .greeting {
@@ -277,6 +305,7 @@ a:active {
 
     padding: 1rem;
     margin: 2rem;
+    margin-left: 1rem;
 
     inset: 0;
 
@@ -431,4 +460,18 @@ a:active {
         opacity: 0;
         transform: scale(0.95);
     }
+}
+
+/* scrollbar (only works on new browsers i think) */
+
+::-webkit-scrollbar {
+    width: 0.125rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--foreground50);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--active);
 }
