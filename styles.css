@@ -66,10 +66,11 @@ body {
     color: var(--foreground);
     background-color: var(--background);
 
-    /* background-image: url("images/background.png");
+    background-image: url("images/other_bg.edited.webp");
     background-position: right;
     background-size: contain;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body {
@@ -359,13 +360,23 @@ a:active {
     flex-direction: row;
 }
 
-#fursona-modal h1 {
+#close {
     position: absolute;
 
-    top: -1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
 
     cursor: crosshair;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 999;
+}
+
+#close svg {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 #fursona-modal .img {
