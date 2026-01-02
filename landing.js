@@ -1,19 +1,10 @@
 const cName = document.getElementById("name");
-const fursonaModal = document.getElementById("fursona-modal");
-// const timeSpans1 = document.getElementsByClassName("time1");
-// const timeSpans2 = document.getElementsByClassName("time2");
+const fursonaModal = document.getElementById("about-modal");
 const aboutMe = document.getElementById("about-me");
 const close = document.getElementById("close");
 
 let open = false;
 let isAnimating = false;
-
-// const options = {
-//     hour: "2-digit",
-//     minute: "2-digit",
-//     second: "2-digit",
-//     hour12: false
-// }
 
 const birthday = new Date(2009, 5, 24);
 const age = getAge(birthday);
@@ -21,7 +12,7 @@ const age = getAge(birthday);
 const info = {
     user: "haley",
     age: age,
-    work: "mentor@tcsPlymouth",
+    work: "mentor@theCoderSchool",
     learning: "gamedev,C",
     theme: "dark",
     editor: "nvim,code-oss"

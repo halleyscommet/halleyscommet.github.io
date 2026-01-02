@@ -299,10 +299,13 @@ a:active {
     transform: translateX(-0.25rem);
 }
 
-#fursona-modal {
+#about-modal {
     position: fixed;
     inset: 2rem;
-    margin: 0;
+    margin: auto auto;
+
+    width: 75%;
+    height: 75%;
 
     display: none;
 
@@ -325,7 +328,7 @@ a:active {
     overflow: auto;
 }
 
-#fursona-modal.is-open {
+#about-modal.is-open {
     display: block;
 
     pointer-events: auto;
@@ -333,7 +336,7 @@ a:active {
     animation: popup 250ms ease-out forwards;
 }
 
-#fursona-modal.is-closing {
+#about-modal.is-closing {
     display: block;
 
     pointer-events: none;
@@ -341,7 +344,7 @@ a:active {
     animation: popout 250ms ease-out forwards;
 }
 
-#fursona-modal .text {
+#about-modal .text {
     position: absolute;
 
     top: 1rem;
@@ -354,7 +357,7 @@ a:active {
     z-index: 99;
 }
 
-#fursona-modal p {
+#about-modal p {
     display: flex;
 
     flex-direction: row;
@@ -379,7 +382,7 @@ a:active {
     height: 1.5rem;
 }
 
-#fursona-modal .img {
+#about-modal .img {
     position: absolute;
 
     top: 50%;
@@ -395,14 +398,14 @@ a:active {
     z-index: 9;
 }
 
-#fursona-modal .img img {
+#about-modal .img img {
     width: auto;
     height: auto;
     max-height: 80vh;
     object-fit: contain;
 }
 
-#fursona-modal .img p {
+#about-modal .img p {
     justify-content: center;
     text-align: center;
 }
