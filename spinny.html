@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>spinny!</title>
+
+        <link rel="stylesheet" href="styles.css" />
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+        <style>
+            .scroll-container {
+                height: 600vh;
+                min-height: 600vh;
+            }
+            
+            .model-container {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            model-viewer {
+                width: 100%;
+                height: 80vh;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <p>[<span class="time1"></span>] haley@site $ ls</p>
+            <a href="./landing.html">landing.html</a>
+            <br>
+            <a href="./about.html">about.html</a>
+            <br>
+            <a href="./credits.html">credits.html</a>
+            <br>
+            <a href="./spinny.html" class="active">spinny.html</a>
+        </div>
+
+        <div class="app">
+            <div class="scroll-container">
+                <h1>haha spinny</h1>
+
+                <div class="model-container">
+                    <model-viewer 
+                        id="model"
+                        src="models/blahaj.glb"
+                        alt="3D Model"
+                        disable-zoom
+                        shadow-intensity="0"
+                        exposure="0.5">
+                    </model-viewer>
+                </div>
+            </div>
+        </div>
+
+        <!-- js -->
+        <script src="landing.js"></script>
+        <script src="time.js"></script>
+
+
+        <script type="module">
+            const modelViewer = document.querySelector('#model');
+            
+            window.addEventListener('scroll', () => {
+                const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                const rotation = scrollProgress * 360 * 3;
+                
+                modelViewer.orientation = `0deg 0deg ${rotation}deg`;
+            });
+        </script>
+    </body>
+</html>
